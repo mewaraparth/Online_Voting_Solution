@@ -1,0 +1,26 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 17 Feb, 2015, 4:11:02 AM
+    Author     : Parth
+*/
+.header-cont{
+    width: 100%;
+        position: absolute;
+        top: 0px;
+}
+.header{
+        height: 109px;
+        border: 0px solid blue;
+        width: auto;
+        margin: 0px auto;
+        background: green;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: xx-large;
+	color: azure;
+        text-decoration:underline ;
+}

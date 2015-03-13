@@ -25,7 +25,7 @@
 <%
     try{
     Class.forName("com.mysql.jdbc.Driver");
-    Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ov","root","root123");
+    Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ovs","root","root123");
     Statement st=con.createStatement();
    
     
