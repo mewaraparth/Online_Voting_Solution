@@ -32,7 +32,28 @@ File for HEADER and Navigation Panel
           <ul class="sf-menu" id="nav">
             <li><a href="examples.html">Are You Registered</a></li>
             <li><a href="page.html">Search Constituency</a></li>
-            <li><a href="another_page.html">The Candidates</a></li>
+            
+            <%
+                
+                String voter;
+                voter=(String)session.getAttribute("voterid");
+                
+                if(voter==null||voter=="invalid")
+                {
+            %>
+
+            <%
+                }//if(voter==null)
+                else
+                {
+            %>
+            <li><a href="user_otp_menu.jsp">Vote Now</a></li>
+            <%
+                }//else (voter==null)
+            %>
+            
+            
+            
             <li><a href="#">Elections</a>
               <ul>
                 <li><a href="#">Lok Sabha</a></li>
@@ -58,7 +79,7 @@ File for HEADER and Navigation Panel
             
             <%
                 
-                String voter;
+             
                 voter=(String)session.getAttribute("voterid");
                 
                 if(voter==null||voter=="invalid")

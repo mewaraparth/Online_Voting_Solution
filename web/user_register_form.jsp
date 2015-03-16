@@ -15,7 +15,7 @@ user hidden register form
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>ONLINE VOTING PORTAL</title>
+        <title>ONLINE VOTING SOLUTION</title>
     </head>
     
 

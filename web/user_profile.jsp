@@ -101,7 +101,11 @@
             
         <div class="content">
     
-       <form action="user_otp_generation.jsp" method="post" style="color:black"> 
+      <%--
+<form action="user_otp_generation.jsp" method="post" style="color:black"> 
+      --%>
+      
+            <form action="#" method="post" style="color: black">
            <table width="700" border="1" align="center" cellpadding="0" cellspacing="0" vspace="50">
   
   <tr>
@@ -260,8 +264,10 @@ out.println("male");
   </td>
      </tr>
 </table>
-    <input type="submit" value="PROCEED TO VOTING" style="margin-left: 320px;"/>
-       </form>
+  <%--
+<input type="submit" value="PROCEED TO VOTING" style="margin-left: 320px;"/>
+--%>
+        </form>
     <h3> NOTE:- FOR ANY CHANGES IN THE DETAILS CONTACT THE ELECTION COMMISSION</h3>    
    <%-- 
         <form action="user_otp.jsp" method="get" >
@@ -291,7 +297,7 @@ out.println("male");
       </div>
     </div>
         
-            <%@include file="footer.jsp" %>
+         
         
   <!-- javascript at the bottom for fast page loading -->
   <script type="text/javascript" src="js/jquery.js"></script>

@@ -43,36 +43,8 @@
     <%
 
 
-    String mobile,pin,dob=null;
-   String voterid=null;
-   String fname=null;
-   String mname=null;
-   String lname=null;
-   String sex=null;
-   String fhname=null;
-   String address=null;
-   String state=null;
-   String tehsil,city,pancard,passport,aadhaar,hf;
-   String otp=null;
-   //Getting values from the previous page
-   
-    voterid=request.getParameter("voterid");//1
-    fname=request.getParameter("fname");//2
-    mname=request.getParameter("mname");//3
-    lname=request.getParameter("lname");//4
-    dob=request.getParameter("dob");//5
-    sex=request.getParameter("sex");//6
-    hf=request.getParameter("hf");//7
-    fhname=request.getParameter("fhname");//8
-    mobile=request.getParameter("mobile");//9
-    address=request.getParameter("address");//10
-    state=request.getParameter("state");//11
-    tehsil=request.getParameter("tehsil");//12
-    city=request.getParameter("city");//13
-    pin=request.getParameter("pin");//14
-    pancard=request.getParameter("pancard");//15
-    passport=request.getParameter("passport");//16
-    aadhaar=request.getParameter("aadhaar");//17
+    String voterid=(String)session.getAttribute("voterid");
+    String otp;
     
    
     Statement st1=con.createStatement();
@@ -140,9 +112,7 @@
    <br>
    
    <%
-    
-        otp=Integer.toString(num);
-        
+        otp=Integer.toString(num);    
     %>
     
     <%--
