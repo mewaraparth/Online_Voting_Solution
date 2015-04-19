@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <servlet>
+        <servlet-name>uploadPic</servlet-name>
+        <servlet-class>admin.uploadPic</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>uploadPic</servlet-name>
+        <url-pattern>/uploadPic</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
@@ -8,4 +16,25 @@
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
+    
+    <context-param>
+        <param-name>connectionclass</param-name>
+        <param-value>com.mysql.jdbc.Driver</param-value>
+    </context-param>
+    <context-param>
+        <param-name>username</param-name>
+        <param-value>root</param-value>
+    </context-param>
+    <context-param>
+        <param-name>password</param-name>
+        <param-value>root123</param-value>
+    </context-param>
+    <context-param>
+        <param-name>connectionprotocol</param-name>
+        <param-value>jdbc:mysql://localhost:3306/ovs</param-value>   
+    </context-param>
+    <context-param>
+        <param-name>userimg</param-name>
+        <param-value>/opt/tomcat/webapps/user_img</param-value>
+    </context-param>
 </web-app>

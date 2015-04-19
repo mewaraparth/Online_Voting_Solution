@@ -19,10 +19,17 @@
     </head>
           
     <%
-    try{
-    Class.forName("com.mysql.jdbc.Driver");
-    Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ovs","root","root123");
-    Statement st=con.createStatement();
+    try{    
+        
+            String connectionclass=request.getSession().getServletContext().getInitParameter("connectionclass");
+            String connectionprotocol=request.getSession().getServletContext().getInitParameter("connectionprotocol");
+            String username=request.getSession().getServletContext().getInitParameter("username");
+            String password=request.getSession().getServletContext().getInitParameter("password");
+
+            Class.forName(connectionclass);
+            Connection con=DriverManager.getConnection(connectionprotocol,username,password);
+            Statement st=con.createStatement();
+ 
     %>
     
     
@@ -86,11 +93,17 @@
             passport=rs.getString("passport");//15
             aadhaar=rs.getString("aadhaar");//16
             hf=rs.getString("fatherorhusband");
+            
+            
+       String day= dob.substring(0,2);
+        String mon=dob.substring(2,4);
+        String year=dob.substring(4,8);
     
   //  session.setAttribute("voterid",voterid);//creates session with the given voterid
         
         %>
             
+        
 
         <body>
         <div id="main">
@@ -104,10 +117,16 @@
       <%--
 <form action="user_otp_generation.jsp" method="post" style="color:black"> 
       --%>
-      
+
+
             <form action="#" method="post" style="color: black">
-           <table width="700" border="1" align="center" cellpadding="0" cellspacing="0" vspace="50">
-  
+                <table width="700" border="1" align="center" cellspacing="0" vspace="50">
+               <tr>
+                   <th>
+                         <img style="height: 85.33px;width: 84px; margin-left: 45px;" src="user_img/<%=voterid%>.jpg">
+                   </th>
+                       
+               </tr>
   <tr>
 
 <th hspace="100" height="30" vspace="100" width="400">Voter ID        </th>
@@ -117,13 +136,26 @@
       </td>
       
   </tr>
-  <tr>
+<%--  
+<tr>
 <th hspace="100" height="30" vspace="100" width="400">Date Of Birth(ddmmyyyy)      </th>
   <td>
     <input type="text" value="<%=dob%>" disabled="" hspace="100" name="dob" maxlength="8"/>
         <input type="hidden" value="<%=dob%>"  hspace="100" name="dob" maxlength="8"/>
       </td>
   </tr>
+--%>
+<tr>
+<th hspace="100" height="30" vspace="100" width="400">Date Of Birth(ddmmyyyy)      </th>
+  <td>
+    <input type="text" value="<%=day+"/"+mon+"/"+year%>" disabled="" hspace="100" name="dob" maxlength="8"/>
+        <input type="hidden" value="<%=dob%>"  hspace="100" name="dob" maxlength="8"/>
+      </td>
+  </tr>
+
+
+
+  <%--
    <tr>
 
 <th hspace="100" height="30" vspace="100" width="400">First Name      </th>
@@ -151,6 +183,20 @@
       </td>
       
   </tr>
+  --%>
+  
+   <tr>
+
+<th hspace="100" height="30" vspace="100" width="400">Name      </th>
+  <td>
+      <input type="text"  value="<%=fname+" "+mname+" "+lname%>" disabled="" hspace="100" name="fname" maxlength="20" > </input>
+      <input type="hidden"  value="<%=fname%>"  hspace="100" name="fname" maxlength="20" > </input>
+      </td>
+      
+  </tr>
+  
+  
+  
      <tr>
 
 <th hspace="100" height="30" vspace="100" width="400">Father / Husband       </th>

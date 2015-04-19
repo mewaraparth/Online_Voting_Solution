@@ -22,28 +22,20 @@
    <%-- div id="sidebar"  here --%> 
     <%@include file="sidebar.jsp" %>
  
-    <%-- slider bar --%>     
-       
-        <div id="sliderbar" style="margin-top: 20px; margin-left: 275px;">
-            <%@include  file="moving_slides.jsp" %>
-        </div>    
-        
+
       <div class="content">
-        <h1>Welcome to the Online Voting Solution</h1>
-        <p>This is a simple to use Web Portal through which you can cast <strong>YOUR VOTE</strong> with Simplicity and Efficiency.</p>
-        <p>With the aim of empowering <strong>YOU</strong> with the power of Democracy and to put up <strong>YOUR VOICE</strong> where it matters.</p>
-        <p>The ONLINE VOTING SOLUTION is the <strong>POWER in YOUR HANDS</strong>.</p>
-        &nbsp;
-        &nbsp;
-        <h2>Browser Compatibility</h2>
-        <p>This template has been tested in the following browsers:</p>
-        <ul>
-          <li>Internet Explorer 8</li>
-          <li>Internet Explorer 7</li>
-          <li>FireFox 10</li>
-          <li>Google Chrome 17</li>
-          <li>Safari 4</li>
-        </ul>
+        
+          <a href="rur_dataentry.jsp">
+              Check Your Registration Status
+          </a>
+          <br>
+          <br>
+          
+          <a href="rur_register.jsp">
+              Register For Online Voting
+          </a>
+          
+          
       </div>
     </div>
         

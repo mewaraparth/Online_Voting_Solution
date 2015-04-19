@@ -24,23 +24,28 @@
         
 <%
     try{
-    Class.forName("com.mysql.jdbc.Driver");
-    Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ovs","root","root123");
-    Statement st=con.createStatement();
-   
+            String connectionclass=request.getSession().getServletContext().getInitParameter("connectionclass");
+            String connectionprotocol=request.getSession().getServletContext().getInitParameter("connectionprotocol");
+            String username=request.getSession().getServletContext().getInitParameter("username");
+            String password=request.getSession().getServletContext().getInitParameter("password");
+
+            Class.forName(connectionclass);
+            Connection con=DriverManager.getConnection(connectionprotocol,username,password);
+            Statement st=con.createStatement();
+  
     
     %>
     
     
         <%
   // String voteridd=(String)request.getAttribute("voteridd");
-    String voteridd=request.getQueryString();
+    String voterid=request.getQueryString();
         %> 
  
    
         <%
 //   out.println(voteridd);
-          ResultSet rs=st.executeQuery("select * from user_all where voter_id='"+voteridd+"'");
+          ResultSet rs=st.executeQuery("select * from user_all where voterid='"+voterid+"'");
         rs.next();
         %>
 
@@ -58,7 +63,7 @@
 <th scope="row" height="50">Sex</th>
 <td>
     <%
-    if(rs.getString(6).equals("m"))   
+    if(rs.getString("sex").equals("m"))   
     {
         %>
     

@@ -23,10 +23,15 @@
     
     <%
         try{
-    Class.forName("com.mysql.jdbc.Driver");
-    Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ov","root","root123");
-    Statement st=con.createStatement();
-        
+            String connectionclass=request.getSession().getServletContext().getInitParameter("connectionclass");
+            String connectionprotocol=request.getSession().getServletContext().getInitParameter("connectionprotocol");
+            String username=request.getSession().getServletContext().getInitParameter("username");
+            String password=request.getSession().getServletContext().getInitParameter("password");
+
+            Class.forName(connectionclass);
+            Connection con=DriverManager.getConnection(connectionprotocol,username,password);
+            Statement st=con.createStatement();
+      
         %>
         <center>
         <table border="1" style="alignment-adjust: central; text-align: center">
@@ -38,7 +43,7 @@
             <th scope="row">Date of Birth</th>
             <th scope="row">Actions</th>
     <%
-   ResultSet rs= st.executeQuery("select * from user_login");//to select all entries
+   ResultSet rs= st.executeQuery("select * from user_all");//to select all entries
    
   while(rs.next())
    {

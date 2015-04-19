@@ -22,7 +22,7 @@
 
         </form></br>
         </br>
-            <a href="index.jsp">Go to main page</a>
+        <a href="admin_login.jsp">Go to main page</a>
     </body>
     </center>
 </html>

@@ -397,8 +397,8 @@ table {
 table tr th, table tr td { 
   background: #555;
   color: #FFF;
-  padding: 7px 4px;
-  text-align: left;
+  padding: 2px 2px;
+  text-align: justify;
   text-shadow: none;
 }
   
@@ -526,7 +526,7 @@ span.sf-arrow {
 }
 
 ul ul span.sf-arrow { 
-  right: 10;
+  right: 10px;
   top: 20px;
   background-position: 0 100%;
 }

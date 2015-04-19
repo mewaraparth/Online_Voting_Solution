@@ -14,6 +14,7 @@
     <body>
         <%
             session.removeAttribute("voterid");
+            session.removeAttribute("name");
             response.sendRedirect("index.jsp");
         %>
     </body>

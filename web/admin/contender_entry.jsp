@@ -63,7 +63,7 @@
                     Enter The Party Symbol
                 </td>
                 <td>
-                    <input type="text" name="partysymbol" required="">
+                    <input type="file" name="partysymbol" value="hello" required="">
                 </td>
             </tr>
             

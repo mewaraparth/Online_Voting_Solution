@@ -24,11 +24,15 @@
 
 <%
     try{
-    Class.forName("com.mysql.jdbc.Driver");
-    Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ov","root","root123");
-    Statement st=con.createStatement();
-   
-    
+            String connectionclass=request.getSession().getServletContext().getInitParameter("connectionclass");
+            String connectionprotocol=request.getSession().getServletContext().getInitParameter("connectionprotocol");
+            String username=request.getSession().getServletContext().getInitParameter("username");
+            String password=request.getSession().getServletContext().getInitParameter("password");
+
+            Class.forName(connectionclass);
+            Connection con=DriverManager.getConnection(connectionprotocol,username,password);
+            Statement st=con.createStatement();
+ 
     %>
     
     <%
@@ -56,10 +60,10 @@
     
 //    st.executeUpdate("insert into user_all values('"+voterid+"','"+fname+"','"+mname+"','"+lname+"','"+dob+"','"+sex+"','"+fhname+"','"+mobile+"','"+address+"','"+state+"','"+tehsil+"','"+city+"','"+pin+"','"+pancard+"','"+passport+"','"+aadhaar+"'");
     PreparedStatement ps1=con.prepareStatement("insert into user_all values('"+voterid+"','"+fname+"','"+mname+"','"+lname+"','"+dob+"','"+sex+"','"+hf+"','"+fhname+"','"+mobile+"','"+address+"','"+state+"','"+tehsil+"','"+city+"','"+pin+"','"+pancard+"','"+passport+"','"+aadhaar+"')"); 
-    PreparedStatement ps2=con.prepareStatement("insert into user_login values('"+voterid+"','"+fname+"','"+mname+"','"+lname+"','"+dob+"')");
+    PreparedStatement ps2=con.prepareStatement("insert into user_login values('"+voterid+"')");
             
-    PreparedStatement ps3=con.prepareStatement("update user_all set voter_id='"+voterid+"',first_name='"+fname+"',middle_name='"+mname+"',last_name='"+lname+"',date_of_birth='"+dob+"',sex='"+sex+"',father_or_husband='"+hf+"',fh_name='"+fhname+"',mobile='"+mobile+"',address='"+address+"',state='"+state+"',tehsil='"+tehsil+"',city='"+city+"',pincode='"+pin+"',pancard='"+pancard+"',passport='"+passport+"',aadhaar='"+aadhaar+"' where voter_id='"+update+"'");
-    PreparedStatement ps4=con.prepareStatement("update user_login set voter_id='"+voterid+"',first_name='"+fname+"',middle_name='"+mname+"',last_name='"+lname+"',date_of_birth='"+dob+"' where voter_id='"+update+"'");
+    PreparedStatement ps3=con.prepareStatement("update user_all set voterid='"+voterid+"',firstname='"+fname+"',middlename='"+mname+"',lastname='"+lname+"',dateofbirth='"+dob+"',sex='"+sex+"',fatherorhusband='"+hf+"',fhname='"+fhname+"',mobile='"+mobile+"',address='"+address+"',state='"+state+"',tehsil='"+tehsil+"',city='"+city+"',pincode='"+pin+"',pancard='"+pancard+"',passport='"+passport+"',aadhaar='"+aadhaar+"' where voterid='"+update+"'");
+    PreparedStatement ps4=con.prepareStatement("update user_login set voterid='"+voterid+"',firstname='"+fname+"',middlename='"+mname+"',lastname='"+lname+"',dateofbirth='"+dob+"' where voterid='"+update+"'");
     %>
     
     <%
@@ -70,6 +74,7 @@
         out.println("querty3");
         ps4.executeUpdate();
         out.println("query4");
+     
     }
     else
     {
@@ -93,12 +98,13 @@
     <h1>Done ENTRY IN 2ND </h1>
     --%>
 <a href="admin_dataentry.jsp">GO TO ADD MORE ENTRY</a>
-</br>
-</br>
-</br>
-<a href="index.jsp">GO TO THE ADMIN/USER SELECTION PANEL</a>
+<br>
+<br>
+<br>
+<a href="admin_login.jsp">GO TO THE ADMIN/USER SELECTION PANEL</a>
     <%
-    
+       RequestDispatcher rd=request.getRequestDispatcher("upload_user_pic.jsp");
+       rd.forward(request, response);
      //response.sendRedirect("admin_dataentry.jsp");
     }//else
     }//try

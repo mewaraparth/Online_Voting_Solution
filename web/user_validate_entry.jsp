@@ -25,12 +25,17 @@
           </body>
 </html>
 <%
-    try{
-    Class.forName("com.mysql.jdbc.Driver");
-    Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ov","root","root123");
-    Statement st=con.createStatement();
-   
     
+    try{
+            String connectionclass=request.getSession().getServletContext().getInitParameter("connectionclass");
+            String connectionprotocol=request.getSession().getServletContext().getInitParameter("connectionprotocol");
+            String username=request.getSession().getServletContext().getInitParameter("username");
+            String password=request.getSession().getServletContext().getInitParameter("password");
+
+            Class.forName(connectionclass);
+            Connection con=DriverManager.getConnection(connectionprotocol,username,password);
+            Statement st=con.createStatement();
+ 
     %>
     
     <%

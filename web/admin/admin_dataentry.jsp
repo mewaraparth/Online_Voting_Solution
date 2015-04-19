@@ -18,8 +18,8 @@
 <center>
     <body background="backimage9.jpg">    
         
-    <form action="admin_validate_entry.jsp" method="get" style="color:black">
-        <table width="1200" border=5 align="center" vspace="50"><center>
+    <form action="admin_validate_entry.jsp" method="get" style="color:black">  
+        <table width="1200" border=5 align="center" vspace="50">
 <tr>
 <th scope="row" height="50">Voter ID</th>
 <td>
@@ -123,16 +123,18 @@ Father's / Husband's Name</br>
 </tr>
            
 </table>
-        
+
         <input type="hidden" name="update" value=""/>
 <input type="submit" value="Proceed"/>
     </form>
+        
+
 </br>
 </br>
 
 <a href="admin_view_detail.jsp">GO TO DETAIL VIEW PAGE</a> <br>
 <br>
-            <a href="index.jsp">GO TO THE ADMIN/USER SELECTION PANEL</a>
+<a href="admin_login.jsp">GO TO THE ADMIN/USER SELECTION PANEL</a>
 </body>
 </center>
         </html>

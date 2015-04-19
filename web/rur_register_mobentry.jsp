@@ -22,28 +22,37 @@
    <%-- div id="sidebar"  here --%> 
     <%@include file="sidebar.jsp" %>
  
-    <%-- slider bar --%>     
-       
-        <div id="sliderbar" style="margin-top: 20px; margin-left: 275px;">
-            <%@include  file="moving_slides.jsp" %>
-        </div>    
-        
+
       <div class="content">
-        <h1>Welcome to the Online Voting Solution</h1>
-        <p>This is a simple to use Web Portal through which you can cast <strong>YOUR VOTE</strong> with Simplicity and Efficiency.</p>
-        <p>With the aim of empowering <strong>YOU</strong> with the power of Democracy and to put up <strong>YOUR VOICE</strong> where it matters.</p>
-        <p>The ONLINE VOTING SOLUTION is the <strong>POWER in YOUR HANDS</strong>.</p>
-        &nbsp;
-        &nbsp;
-        <h2>Browser Compatibility</h2>
-        <p>This template has been tested in the following browsers:</p>
-        <ul>
-          <li>Internet Explorer 8</li>
-          <li>Internet Explorer 7</li>
-          <li>FireFox 10</li>
-          <li>Google Chrome 17</li>
-          <li>Safari 4</li>
-        </ul>
+        <form action="" method="post">
+              
+           <table  width="600" border="02" align="center" cellpadding="0" cellspacing="0" vspace="50" style="margin-left: 50px;">
+  
+               <tr>
+
+                   <th hspace="100" height="60" vspace="10" width="350">
+                      Phone Number
+                   </th>
+                   <td>
+                       <input type="text" value="" hspace="10" required="" name="voterid" maxlength="11"/>
+                   </td>
+               </tr>
+  
+               <tr>
+                   <th hspace="10" height="60" vspace="10" width="350">
+                      Email ID
+                   </th>
+                   <td>
+                       <input type="text" value="" hspace="10" name="dob" required=""maxlength="8"/>
+                   </td>
+               </tr>             
+           </table>
+
+           <input type="submit" value="SUBMIT" style="margin-left: 320px; "/>
+
+       </form>
+          
+          
       </div>
     </div>
         

@@ -5,6 +5,10 @@
 File for HEADER and Navigation Panel
 --%>
 
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -16,7 +20,7 @@ File for HEADER and Navigation Panel
     </head>
     <body>
     <div id="bg">
-        <img src="img/background.jpg" alt="home">
+        <img src="img/Website-Design-Background-1366x768.jpg" alt="home">
     </div>
         <header>
       <div id="logo">
@@ -30,14 +34,17 @@ File for HEADER and Navigation Panel
              <nav>
                  <div id="menu_container">
           <ul class="sf-menu" id="nav">
-            <li><a href="examples.html">Are You Registered</a></li>
+              <li><a href="rur.jsp">Register</a></li>
             <li><a href="page.html">Search Constituency</a></li>
             
             <%
                 
                 String voter;
-                voter=(String)session.getAttribute("voterid");
                 
+                String name;
+                
+                voter=(String)session.getAttribute("voterid");
+                name=(String)session.getAttribute("name");
                 if(voter==null||voter=="invalid")
                 {
             %>
@@ -47,7 +54,7 @@ File for HEADER and Navigation Panel
                 else
                 {
             %>
-            <li><a href="user_otp_menu.jsp">Vote Now</a></li>
+            <li><a href="user_otp_menu.jsp" style="text-decoration: blink #75CE00 solid">Vote Now</a></li>
             <%
                 }//else (voter==null)
             %>
@@ -81,17 +88,18 @@ File for HEADER and Navigation Panel
                 
              
                 voter=(String)session.getAttribute("voterid");
-                
+                name=(String)session.getAttribute("name");
                 if(voter==null||voter=="invalid")
                 {
             %>
             <li><a href="user_dataentry.jsp">Login</a></li>
             <%
                 }//if(voter==null)
+                
                 else
                 {
             %>
-            <li><a>User <%=voter%>
+            <li><a><%=name%>
             <ul>
                 <li><a href="user_profile.jsp">Profile</a></li>
                 <li><a href="logout.jsp">Logout</a></li>
@@ -104,7 +112,6 @@ File for HEADER and Navigation Panel
           </ul>
         </div>
       </nav>
-            
     </header>
     
 

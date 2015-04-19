@@ -14,7 +14,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Content-Type" c"text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
     
@@ -25,10 +25,15 @@
     
            <%
        try{
-    Class.forName("com.mysql.jdbc.Driver");
-    Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ovs","root","root123");
-    Statement st=con.createStatement();
-   
+            String connectionclass=request.getSession().getServletContext().getInitParameter("connectionclass");
+            String connectionprotocol=request.getSession().getServletContext().getInitParameter("connectionprotocol");
+            String username=request.getSession().getServletContext().getInitParameter("username");
+            String password=request.getSession().getServletContext().getInitParameter("password");
+
+            Class.forName(connectionclass);
+            Connection con=DriverManager.getConnection(connectionprotocol,username,password);
+            Statement st=con.createStatement();
+ 
     
     %>
        
@@ -42,6 +47,7 @@
             String partyname=(String)request.getParameter("partyname");
             String partysymbol=(String)request.getParameter("partysymbol");
             
+            
             int cno=0;
             
             PreparedStatement ps1=con.prepareStatement("select * from contender_list");
@@ -52,6 +58,7 @@
         
         %>
         
+        <%=partysymbol%>
         
         <%
             
